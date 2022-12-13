@@ -1,3 +1,5 @@
+from urllib.parse import urlparse
+
 def search_keyword(url, keyword):
   import requests
   import re
@@ -13,6 +15,9 @@ def search_keyword(url, keyword):
     # Use a regular expression to find all URLs in the HTML
     url_regex = r'https?://\S+'
     urls = re.findall(url_regex, html)
+
+    # Parse the original URL to extract its domain
+    original_domain = urlparse(url).netloc
 
     # Search for the keyword in the HTML
     occurrences = []
@@ -56,7 +61,9 @@ def search_keyword(url, keyword):
   else:
     print(f"Failed to fetch HTML for {url}")
 
-url = input("URL:")
-keyword = input("Keyword:")
+#url = input("URL:")
+#keyword = input("Keyword:")
+url = "http://thiccbois.nl"
+keyword = "worst"
 search_keyword(url, keyword)
 
