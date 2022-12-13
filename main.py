@@ -1,6 +1,12 @@
 import requests
 
-def search_keyword(url, keyword):
+def search_keyword():
+  # Ask the user for the URL to search
+  url = input("Enter the URL to search: ")
+
+  # Ask the user for the keyword to search for
+  keyword = input("Enter the keyword to search for: ")
+
   # Use the requests module to fetch the HTML of the website
   response = requests.get(url)
 
@@ -31,5 +37,5 @@ def search_keyword(url, keyword):
     print(f"Failed to fetch HTML for {url}")
 
 # Test the search_keyword function
-occurrences = search_keyword("https://www.google.com", "Google")
+occurrences = search_keyword()
 print(occurrences)
